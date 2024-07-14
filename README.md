@@ -2,4 +2,4 @@
 
 ## Projects:
 - Financial Calculator
-- unit_converter
+- Unit Converter
