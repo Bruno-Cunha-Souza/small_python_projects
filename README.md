@@ -1,5 +1,6 @@
 # Small Python Projects
 
 ## Projects:
-- Financial Calculator
-- Unit Converter
+- Financial calculator
+- Unit converter
+- Password generator 
