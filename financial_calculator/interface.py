@@ -4,7 +4,7 @@ from utils import get_float_input, get_int_input
 def menu():
     while True:
         print("\n============================")
-        print("  Calculadora Financeiraz")
+        print("  Calculadora Financeira")
         print("============================\n")
         print("1. Calcular Juros Simples")
         print("2. Calcular Juros Compostos")
