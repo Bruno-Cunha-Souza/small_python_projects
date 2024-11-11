@@ -15,3 +15,7 @@ Small, quick projects for learning and portfolio building.
 ### Password generator
 
 - Generates passwords of chosen lengths, with options to include uppercase letters, numbers, and special characters.
+
+### Remove Background
+
+- Using the rembg library, removes the background from images
