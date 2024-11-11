@@ -2,14 +2,14 @@ from generator import PasswordGenerator
 
 def menu():
     print("\n===================================")
-    print("  Bem-vindo ao Gerador de Senhas!")
+    print("  Welcome to Password Generator!")
     print("===================================\n")
 
-    length = int(input("Digite o comprimento da senha: "))
-    use_uppercase = input("Incluir letras maiúsculas? (s/n): ").lower() == 's'
-    use_lowercase = input("Incluir letras minúsculas? (s/n): ").lower() == 's'
-    use_digits = input("Incluir números? (s/n): ").lower() == 's'
-    use_special = input("Incluir caracteres especiais? (s/n): ").lower() == 's'
+    length = int(input("Enter password length: "))
+    use_uppercase = input("Include capital letters? (y/n): ").lower() == 'y'
+    use_lowercase = input("Include lowercase letters? (y/n): ").lower() == 'y'
+    use_digits = input("Include numbers? (y/n): ").lower() == 'y'
+    use_special = input("Include special characters? (y/n): ").lower() == 'y'
 
     generator = PasswordGenerator(
         length=length,
@@ -20,4 +20,4 @@ def menu():
     )
 
     password = generator.generate()
-    print(f"\nSua nova senha é: {password}")
+    print(f"\nYour new password is: {password}")

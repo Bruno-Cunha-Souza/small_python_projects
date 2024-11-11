@@ -1,47 +1,57 @@
 from converter import UnitConverter
 
+def display_menu():
+    print("\n============================")
+    print("        Unit Converter")
+    print("============================\n")
+    print("1. Meters to Feet")
+    print("2. Feet to Meters")
+    print("3. Liters to Gallons")
+    print("4. Gallons to Liters")
+    print("5. Kilograms to Pounds")
+    print("6. Pounds to Kilograms")
+    print("7. Celsius to Fahrenheit")
+    print("8. Fahrenheit to Celsius")
+    print("9. Exit")
+
 def menu():
     converter = UnitConverter()
 
     while True:
-        print("\n============================")
-        print("   Conversor de Unidades")
-        print("============================\n")
-        print("1. Metros para Pés")
-        print("2. Pés para Metros")
-        print("3. Litros para Galões")
-        print("4. Galões para Litros")
-        print("5. Quilogramas para Libras")
-        print("6. Libras para Quilogramas")
-        print("7. Celsius para Fahrenheit")
-        print("8. Fahrenheit para Celsius")
-        print("9. Sair")
+        display_menu()
         
-        choice = input("\nEscolha uma opção: ")
+        choice = input("\nChoose an option: ")
+        
+        if choice not in [str(i) for i in range(1, 10)]:
+            print("\nInvalid option. Try again.")
+            continue
         
         if choice == '9':
-            print("Saindo...")
+            print("Leaving...")
             break
         
-        value = float(input("\nDigite o valor a ser convertido: "))
+        try:
+            value = float(input("\nEnter the value to be converted: "))
+        except ValueError:
+            print("\nInvalid input. Please enter a numeric value.")
+            continue
         
-        if choice == '1':
-            print(f'\n{value} metros são {converter.convert(value, "meters", "feet")} pés.')
-        elif choice == '2':
-            print(f'\n{value} pés são {converter.convert(value, "feet", "meters")} metros.')
-        elif choice == '3':
-            print(f'\n{value} litros são {converter.convert(value, "liters", "gallons")} galões.')
-        elif choice == '4':
-            print(f'\n{value} galões são {converter.convert(value, "gallons", "liters")} litros.')
-        elif choice == '5':
-            print(f'\n{value} quilogramas são {converter.convert(value, "kilograms", "pounds")} libras.')
-        elif choice == '6':
-            print(f'\n{value} libras são {converter.convert(value, "pounds", "kilograms")} quilogramas.')
-        elif choice == '7':
-            print(f'\n{value} graus Celsius são {converter.convert(value, "celsius", "fahrenheit")} graus Fahrenheit.')
-        elif choice == '8':
-            print(f'\n{value} graus Fahrenheit são {converter.convert(value, "fahrenheit", "celsius")} graus Celsius.')
-        else:
-            print("\nOpção inválida. Tente novamente.")
+        match choice:
+            case '1':
+                print(f'\n{value} meters are {converter.convert(value, "meters", "feet")} feet.')
+            case '2':
+                print(f'\n{value} feet are {converter.convert(value, "feet", "meters")} meters.')
+            case '3':
+                print(f'\n{value} liters are {converter.convert(value, "liters", "gallons")} gallons.')
+            case '4':
+                print(f'\n{value} gallons are {converter.convert(value, "gallons", "liters")} liters.')
+            case '5':
+                print(f'\n{value} kilograms are {converter.convert(value, "kilograms", "pounds")} pounds.')
+            case '6':
+                print(f'\n{value} pounds are {converter.convert(value, "pounds", "kilograms")} kilograms.')
+            case '7':
+                print(f'\n{value} celsius are {converter.convert(value, "celsius", "fahrenheit")} fahrenheit.')
+            case '8':
+                print(f'\n{value} fahrenheit are {converter.convert(value, "fahrenheit", "celsius")} celsius.')
         
         print()
