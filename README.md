@@ -4,6 +4,10 @@ Small, quick projects for learning and portfolio building.
 
 ## Projects
 
+### Site Monitoring
+
+- Monitor the response status when trying to access registered sites and store your logs
+
 ### Financial calculator
 
 - Calculates simple interest, compound interest, present value, and future value.
