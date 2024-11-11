@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_PASSWORD=my_password
+      - POSTGRES_DB=polls
+    networks:
+      - postgres-network
+    volumes:
+      - polls_pg_data:/var/lib/postgresql/data
+    
+  pgadmin:
+    container_name: pgadmin4
+    image: dpage/pgadmin4
+    ports:
+      - '15432:80'
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=my_password
+    networks:
+      - postgres-network
+    volumes:
+      - polls_pgadmin_data:/var/lib/pgadmin
+
+  redis:
+    container_name: redisdocke
+    image: redis
+    ports:
+      - '6379:6379'
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+    driver: bridge
+
+volumes:
+  polls_pg_data:
+  polls_pgadmin_data:
